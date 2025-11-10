@@ -47,7 +47,7 @@
       Intent Display Name: dfcx_transcript.intent_display_name
       Source Flow Display Name: dfcx_transcript.source_flow_display_name
       Source Page Display Name: dfcx_transcript.source_page_display_name
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 6
     col: 0
     width: 24
@@ -91,7 +91,7 @@
       Intent Display Name: dfcx_transcript.intent_display_name
       Source Flow Display Name: dfcx_transcript.source_flow_display_name
       Source Page Display Name: dfcx_transcript.source_page_display_name
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 12
     col: 0
     width: 24
@@ -139,7 +139,7 @@
       Intent Display Name: dfcx_transcript.intent_display_name
       Source Flow Display Name: dfcx_transcript.source_flow_display_name
       Source Page Display Name: dfcx_transcript.source_page_display_name
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 27
     col: 0
     width: 12
@@ -200,7 +200,7 @@
       Intent Display Name: dfcx_transcript.intent_display_name
       Source Flow Display Name: dfcx_transcript.source_flow_display_name
       Source Page Display Name: dfcx_transcript.source_page_display_name
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 0
     col: 0
     width: 24
@@ -282,7 +282,7 @@
       Intent Display Name: dfcx_transcript.intent_display_name
       Source Flow Display Name: dfcx_transcript.source_flow_display_name
       Source Page Display Name: dfcx_transcript.source_page_display_name
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 21
     col: 0
     width: 24
@@ -335,7 +335,7 @@
       Intent Display Name: dfcx_transcript.intent_display_name
       Source Flow Display Name: dfcx_transcript.source_flow_display_name
       Source Page Display Name: dfcx_transcript.source_page_display_name
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 27
     col: 12
     width: 12
@@ -406,4 +406,4 @@
     #model: DCA_PRD_1
     explore: dfcx_session_metadata
     listens_to_filters: [Session Start Date, Source Flow Display Name, Source Page Display Name, Intent Display Name]
-    field: dfcx_agent_name.agent_name
+    field: dfcx_session_metadata.agent_name

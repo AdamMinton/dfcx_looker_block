@@ -48,7 +48,7 @@
       Session Start Date: dfcx_session_metadata.session_start_date
       Session ID: dfcx_session_metadata.session_id
       Auth User: dfcx_session_metadata.auth_user
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 15
     col: 15
     width: 9
@@ -127,7 +127,7 @@
       Session Start Date: dfcx_session_metadata.session_start_date
       Session ID: dfcx_session_metadata.session_id
       Auth User: dfcx_session_metadata.auth_user
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 20
     col: 15
     width: 9
@@ -184,7 +184,7 @@
       Session Start Date: dfcx_session_metadata.session_start_date
       Session ID: dfcx_session_metadata.session_id
       Auth User: dfcx_session_metadata.auth_user
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 11
     col: 0
     width: 15
@@ -230,7 +230,7 @@
       Session Start Date: dfcx_session_metadata.session_start_date
       Session ID: dfcx_session_metadata.session_id
       Auth User: dfcx_session_metadata.auth_user
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 3
     col: 0
     width: 15
@@ -274,7 +274,7 @@
       Session Start Date: dfcx_session_metadata.session_start_date
       Session ID: dfcx_session_metadata.session_id
       Auth User: dfcx_session_metadata.auth_user
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 11
     col: 15
     width: 9
@@ -324,7 +324,7 @@
       Session Start Date: dfcx_session_metadata.session_start_date
       Session ID: dfcx_session_metadata.session_id
       Auth User: dfcx_session_metadata.auth_user
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 3
     col: 15
     width: 9
@@ -369,7 +369,7 @@
       Session Start Date: dfcx_session_metadata.session_start_date
       Session ID: dfcx_session_metadata.session_id
       Auth User: dfcx_session_metadata.auth_user
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 0
     col: 0
     width: 11
@@ -379,8 +379,8 @@
     #model: DCA_PRD_1
     explore: dfcx_session_metadata
     type: single_value
-    fields: [dfcx_session_heuristic_outcome.heuristic_outcome]
-    sorts: [dfcx_session_heuristic_outcome.heuristic_outcome]
+    fields: [dfcx_session_metadata.is_escalated]
+    sorts: [dfcx_session_metadata.is_escalated]
     limit: 500
     column_limit: 50
     custom_color_enabled: true
@@ -414,7 +414,7 @@
       Session Start Date: dfcx_session_metadata.session_start_date
       Session ID: dfcx_session_metadata.session_id
       Auth User: dfcx_session_metadata.auth_user
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 0
     col: 11
     width: 5
@@ -482,7 +482,7 @@
       Session Start Date: dfcx_session_metadata.session_start_date
       Session ID: dfcx_session_metadata.session_id
       Auth User: dfcx_session_metadata.auth_user
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 0
     col: 16
     width: 8
@@ -534,7 +534,7 @@
       Session Start Date: dfcx_session_metadata.session_start_date
       Session ID: dfcx_session_metadata.session_id
       Auth User: dfcx_session_metadata.auth_user
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 18
     col: 0
     width: 15
@@ -593,4 +593,4 @@
     #model: DCA_PRD_1
     explore: dfcx_session_metadata
     listens_to_filters: [Session Start Date, Session ID]
-    field: dfcx_agent_name.agent_name
+    field: dfcx_session_metadata.agent_name

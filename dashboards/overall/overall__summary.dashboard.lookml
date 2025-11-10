@@ -1,5 +1,5 @@
 - dashboard: overall__summary
-  title: Overall - Summary - FANCY NEW TITLE
+  title: Overall - Summary
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
@@ -697,7 +697,7 @@
     type: looker_grid
     fields: [dfcx_session_metadata.session_id, dfcx_session_metadata.session_start_date,
       dfcx_session_metadata.final_action, dfcx_session_metadata.final_action_started,
-      dfcx_session_metadata.final_action_ended, dfcx_session_heuristic_outcome.heuristic_outcome]
+      dfcx_session_metadata.final_action_ended, dfcx_session_metadata.is_escalated]
     filters: {}
     sorts: [dfcx_session_metadata.session_start_date desc]
     limit: 500

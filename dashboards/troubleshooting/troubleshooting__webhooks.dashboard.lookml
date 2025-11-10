@@ -84,7 +84,7 @@
       Session Start Date: dfcx_session_metadata.session_start_date
       Webhook Flow Name: dfcx_transcript__webhooks.flow_display_name
       Webhook Page Name: dfcx_transcript__webhooks.page_display_name
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 2
     col: 0
     width: 24
@@ -160,7 +160,7 @@
       Session Start Date: dfcx_session_metadata.session_start_date
       Webhook Flow Name: dfcx_transcript__webhooks.flow_display_name
       Webhook Page Name: dfcx_transcript__webhooks.page_display_name
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 8
     col: 0
     width: 24
@@ -249,7 +249,7 @@
       Session Start Date: dfcx_session_metadata.session_start_date
       Webhook Flow Name: dfcx_transcript__webhooks.flow_display_name
       Webhook Page Name: dfcx_transcript__webhooks.page_display_name
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 14
     col: 0
     width: 24
@@ -308,7 +308,7 @@
       Session Start Date: dfcx_session_metadata.session_start_date
       Webhook Flow Name: dfcx_transcript__webhooks.flow_display_name
       Webhook Page Name: dfcx_transcript__webhooks.page_display_name
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 20
     col: 0
     width: 24
@@ -318,10 +318,9 @@
     #model: VVA_DEV_1
     explore: dfcx_session_metadata
     type: looker_pie
-    fields: [dfcx_transcript__webhooks.total_webhooks, dfcx_session_heuristic_outcome.heuristic_outcome]
+    fields: [dfcx_transcript__webhooks.total_webhooks, dfcx_session_metadata.is_escalated]
     filters:
       dfcx_transcript__webhooks.webhook_url: "-NULL"
-      dfcx_transcript__webhooks.webhook_failure_status: OPERATIONAL,BOTH,FUNCTIONAL
     sorts: [dfcx_transcript__webhooks.total_webhooks desc 0]
     limit: 500
     column_limit: 50
@@ -343,7 +342,7 @@
       Session Start Date: dfcx_session_metadata.session_start_date
       Webhook Flow Name: dfcx_transcript__webhooks.flow_display_name
       Webhook Page Name: dfcx_transcript__webhooks.page_display_name
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 29
     col: 14
     width: 5
@@ -356,7 +355,6 @@
     fields: [dfcx_transcript__webhooks.total_webhooks, dfcx_transcript__webhooks.webhook_status]
     filters:
       dfcx_transcript__webhooks.webhook_url: "-NULL"
-      dfcx_transcript__webhooks.webhook_failure_status: OPERATIONAL,BOTH,FUNCTIONAL
     sorts: [dfcx_transcript__webhooks.total_webhooks desc 0]
     limit: 500
     column_limit: 50
@@ -377,7 +375,7 @@
       Session Start Date: dfcx_session_metadata.session_start_date
       Webhook Flow Name: dfcx_transcript__webhooks.flow_display_name
       Webhook Page Name: dfcx_transcript__webhooks.page_display_name
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 29
     col: 19
     width: 5
@@ -392,7 +390,6 @@
       dfcx_transcript__webhooks.operational_webhook_failure]
     filters:
       dfcx_transcript__webhooks.webhook_display_name: "-NULL"
-      dfcx_transcript__webhooks.webhook_failure_status: OPERATIONAL,BOTH,FUNCTIONAL
     sorts: [dfcx_transcript.position desc]
     limit: 500
     column_limit: 50
@@ -423,7 +420,7 @@
       Session Start Date: dfcx_session_metadata.session_start_date
       Webhook Flow Name: dfcx_transcript__webhooks.flow_display_name
       Webhook Page Name: dfcx_transcript__webhooks.page_display_name
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 29
     col: 0
     width: 14
@@ -508,4 +505,4 @@
     #model: DCA_PRD_1
     explore: dfcx_session_metadata
     listens_to_filters: [Session Start Date, Project ID, Webhook Flow Name, Webhook Page Name, Webhook Display Name]
-    field: dfcx_agent_name.agent_name
+    field: dfcx_session_metadata.agent_name

@@ -76,7 +76,7 @@
       Flow Display Name: dfcx_transcript.flow_display_name
       Session Start Date: dfcx_session_metadata.session_start_date
       Page Display Name: dfcx_transcript.page_display_name
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 5
     col: 0
     width: 12
@@ -174,7 +174,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Page Display Name: dfcx_transcript.page_display_name
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 0
     col: 0
     width: 24
@@ -250,7 +250,7 @@
       Flow Display Name: dfcx_transcript.flow_display_name
       Session Start Date: dfcx_session_metadata.session_start_date
       Page Display Name: dfcx_transcript.page_display_name
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 5
     col: 12
     width: 12
@@ -349,4 +349,4 @@
     #model: DCA_PRD_1
     explore: dfcx_session_metadata
     listens_to_filters: [Session Start Date,  Source Flow Display Name, Source Page Display Name, Flow Display Name, Page Display Name]
-    field: dfcx_agent_name.agent_name
+    field: dfcx_session_metadata.agent_name

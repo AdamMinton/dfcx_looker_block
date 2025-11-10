@@ -32,7 +32,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 0
     col: 6
     width: 6
@@ -80,7 +80,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 0
     col: 18
     width: 6
@@ -128,7 +128,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 0
     col: 12
     width: 6
@@ -215,7 +215,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 6
     col: 8
     width: 4
@@ -300,7 +300,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 9
     col: 8
     width: 4
@@ -385,7 +385,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 12
     col: 8
     width: 4
@@ -470,7 +470,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 3
     col: 8
     width: 4
@@ -555,7 +555,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 9
     col: 12
     width: 4
@@ -640,7 +640,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 6
     col: 12
     width: 4
@@ -725,7 +725,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 12
     col: 12
     width: 4
@@ -810,7 +810,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 3
     col: 12
     width: 4
@@ -895,7 +895,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 3
     col: 4
     width: 4
@@ -980,7 +980,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 3
     col: 0
     width: 4
@@ -1050,7 +1050,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 6
     col: 0
     width: 4
@@ -1120,7 +1120,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 6
     col: 4
     width: 4
@@ -1190,7 +1190,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 9
     col: 0
     width: 4
@@ -1260,7 +1260,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 9
     col: 4
     width: 4
@@ -1330,7 +1330,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 12
     col: 0
     width: 4
@@ -1400,7 +1400,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Name: dfcx_agent_name.agent_name
+      Agent Name: dfcx_session_metadata.agent_name
     row: 12
     col: 4
     width: 4
@@ -2134,4 +2134,4 @@
     #model: tmo-ccai-dev
     explore: dfcx_session_metadata
     listens_to_filters: []
-    field: dfcx_agent_name.agent_name
+    field: dfcx_session_metadata.agent_name

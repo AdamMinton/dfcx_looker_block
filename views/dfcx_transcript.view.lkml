@@ -1162,34 +1162,10 @@ view: dfcx_transcript__webhooks {
     sql: ${TABLE}.webhook_url ;;
   }
 
-  dimension: webhook_failure_status {
-    type: string
-    sql:
-    CASE
-      WHEN ${functional_webhook_failure} AND ${operational_webhook_failure} THEN 'BOTH'
-      WHEN ${functional_webhook_failure} THEN 'FUNCTIONAL'
-      WHEN ${operational_webhook_failure} THEN 'OPERATIONAL'
-      ELSE 'NONE'
-    END
-   ;;
-  }
-
   dimension: operational_webhook_failure {
     type: yesno
     sql: ${webhook_status} != 'OK' ;;
     description: "Indicates if the webhook status is not 'OK'"
-  }
-
-  dimension: functional_webhook_failure {
-    type: yesno
-    sql: NOT ${dfcx_step_webhook_status.did_row_pass} ;;
-    description: "Indicates if there was a functional webhook failure (TRUE means failure)"
-  }
-
-  measure: total_functional_webhook_failures {
-    type: count_distinct
-    sql: CASE WHEN ${functional_webhook_failure} THEN ${primary_key} ELSE NULL END ;;
-    label: "Total Functional Webhook Failures"
   }
 
   measure: total_operational_webhook_failures {
@@ -1201,12 +1177,6 @@ view: dfcx_transcript__webhooks {
   measure: operational_webhook_failure_rate {
     type: number
     sql: ${total_operational_webhook_failures}/ NULLIF(${total_webhooks},0)  ;;
-    value_format_name: percent_2
-  }
-
-  measure: functional_webhook_failure_rate {
-    type: number
-    sql: ${total_functional_webhook_failures}/ NULLIF(${total_webhooks},0)  ;;
     value_format_name: percent_2
   }
 

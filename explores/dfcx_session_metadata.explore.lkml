@@ -2,9 +2,6 @@ include: "/views/dfcx_session_metadata.view.lkml"
 include: "/views/dfcx_transcript.view.lkml"
 include: "/views/dfcx_transcript_metadata.view.lkml"
 include: "/views/dfcx_interaction.view.lkml"
-include: "/views/dfcx_session_heuristic_outcome.view.lkml"
-include: "/views/dfcx_session_common_lookups.view.lkml"
-include: "/views/dfcx_transitions.view.lkml"
 include: "dfcx_transcript.explore.lkml"
 include: "dfcx_interaction.explore.lkml"
 
@@ -38,22 +35,6 @@ explore: dfcx_session_metadata {
     ,-dfcx_interaction.session_start_time,-dfcx_interaction.session_start_date,-dfcx_interaction.session_start_week,-dfcx_interaction.session_start_month,-dfcx_interaction.session_start_quarter,-dfcx_interaction.session_start_year
     ,-dfcx_interaction.session_id
   ]
-
-  join: dfcx_session_heuristic_outcome {
-    view_label: "01 - DFCX Session"
-    type: left_outer
-    sql_on:  ${dfcx_session_metadata.session_id} = ${dfcx_session_heuristic_outcome.session_id}
-      AND ${dfcx_session_metadata.session_start_time} = ${dfcx_session_heuristic_outcome.session_start_time} ;;
-    relationship: one_to_one
-  }
-
-  join: dfcx_session_common_lookups {
-    view_label: "01 - DFCX Session"
-    type: left_outer
-    sql_on:  ${dfcx_session_metadata.session_id} = ${dfcx_session_common_lookups.session_id}
-      AND ${dfcx_session_metadata.session_start_time} = ${dfcx_session_common_lookups.session_start_time} ;;
-    relationship: one_to_one
-  }
 
   join: dfcx_interaction {
     view_label: "02 - DFCX Interaction"
@@ -97,53 +78,4 @@ explore: dfcx_session_metadata {
     view_label: "07 - DFCX Webhooks"
   }
 
-  join: dfcx_step_webhook_status {
-    view_label: "07 - DFCX Webhooks"
-  }
-
-  join: dfcx_transitions {
-    view_label: "08 - DFCX Transitions"
-    type: left_outer
-    sql_on:  ${dfcx_transcript.session_start_raw} = ${dfcx_transitions.session_start_raw}
-    AND ${dfcx_transcript.session_id} = ${dfcx_transitions.session_id}
-    AND ${dfcx_transcript.position} = ${dfcx_transitions.position_after};;
-    relationship: one_to_one
-  }
-
-  join: dfcx_agent_name {
-    view_label: "01 - DFCX Session"
-  }
-
 }
-
-
-# join: dfcx_transcript__webhooks {
-#   view_label: "Dfcx Transcript: Webhooks"
-#   sql: LEFT JOIN UNNEST(${dfcx_transcript.webhooks}) as dfcx_transcript__webhooks ;;
-#   relationship: one_to_many
-# }
-
-# join: dfcx_transcript__execution_sequence {
-#   view_label: "Dfcx Transcript: Execution Sequence"
-#   sql: LEFT JOIN UNNEST(${dfcx_transcript.execution_sequence}) as dfcx_transcript__execution_sequence ;;
-#   relationship: one_to_many
-# }
-
-# join: dfcx_transcript__alternative_matched_intents {
-#   view_label: "Dfcx Transcript: Alternative Matched Intents"
-#   sql: LEFT JOIN UNNEST(${dfcx_transcript.alternative_matched_intents}) as dfcx_transcript__alternative_matched_intents ;;
-#   relationship: one_to_many
-# }
-
-# join: dfcx_transcript__execution_sequence__responses {
-#   view_label: "Dfcx Transcript: Execution Sequence Responses"
-#   sql: LEFT JOIN UNNEST(${dfcx_transcript__execution_sequence.responses}) as dfcx_transcript__execution_sequence__responses ;;
-#   relationship: one_to_many
-# }
-
-# join: dfcx_step_webhook_status {
-#   type: left_outer
-#   sql_on: ${dfcx_transcript.session_id} = ${dfcx_step_webhook_status.session_id}
-#     AND ${dfcx_transcript.session_start_time} = ${dfcx_step_webhook_status.session_start_time};;
-#   relationship: one_to_many
-# }

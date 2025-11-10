@@ -58,7 +58,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Display Name: dfcx_agent_name.agent_name
+      Agent Display Name: dfcx_session_metadata.agent_name
     row: 7
     col: 0
     width: 24
@@ -125,7 +125,7 @@
     listen:
       Session Start Date: dfcx_session_metadata.session_start_date
       Project ID: dfcx_session_metadata.project_id
-      Agent Display Name: dfcx_agent_name.agent_name
+      Agent Display Name: dfcx_session_metadata.agent_name
     row: 0
     col: 0
     width: 24
@@ -170,4 +170,4 @@
     #model: tmo-ccai-dev
     explore: dfcx_session_metadata
     listens_to_filters: []
-    field: dfcx_agent_name.agent_name
+    field: dfcx_session_metadata.agent_name

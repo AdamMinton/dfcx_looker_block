@@ -18,6 +18,11 @@ view: dfcx_session_metadata {
     sql: ${TABLE}.agent_id ;;
   }
 
+  dimension: agent_name {
+    type: string
+    sql: ${TABLE}.agent_name ;;
+  }
+
   dimension: channel {
     type: string
     sql: ${TABLE}.channel ;;
@@ -182,6 +187,11 @@ view: dfcx_session_metadata {
     sql: ${TABLE}.flag_failed_webhook ;;
   }
 
+  dimension: is_escalated {
+    type: yesno
+    sql: ${TABLE}.is_escalated ;;
+  }
+
   dimension: location {
     type: string
     sql: ${TABLE}.location ;;
@@ -295,7 +305,8 @@ view: dfcx_session_metadata {
 
   measure: total_ss_attempt_sessions {
     type: count_distinct
-    sql:  if(${TABLE}.final_action_started, ${TABLE}.session_id, NULL);;
+    sql: ${TABLE}.session_id ;;
+    filters: [final_action_started: "Yes"]
   }
 
   measure: ss_success_percentage {
@@ -310,43 +321,16 @@ view: dfcx_session_metadata {
     value_format_name: percent_2
   }
 
-  dimension: heuristic_ind {
-    type: yesno
-    sql: CASE WHEN ${dfcx_session_heuristic_outcome.heuristic_outcome} = 'ESCALATED'
-            THEN true
-            ELSE false
-       END ;;
-  }
-
-  measure: total_sessions_heuristic_can_be_determined {
-    type: count_distinct
-    sql: CASE WHEN ${dfcx_session_heuristic_outcome.can_heuristic_outcome_be_determined}
-            THEN ${dfcx_session_metadata.session_id}
-            ELSE NULL
-       END ;;
-  }
-
   measure: total_escalated_sessions {
     type: count_distinct
-    sql: CASE WHEN (${dfcx_session_heuristic_outcome.can_heuristic_outcome_be_determined}
-                 AND ${dfcx_session_metadata.heuristic_ind})
-            THEN ${dfcx_session_metadata.session_id}
-            ELSE NULL
-       END ;;
+    sql: ${dfcx_session_metadata.session_id} ;;
+    filters: [is_escalated: "Yes"]
   }
 
   measure: escalated_percentage {
     type: number
-    sql:  ${total_escalated_sessions}/ NULLIF(${total_sessions_heuristic_can_be_determined},0) ;;
+    sql:  ${total_escalated_sessions}/ NULLIF(${total_sessions},0) ;;
     value_format_name: percent_2
-  }
-
-  dimension: more_than_1_turn {
-    type: number
-    sql: CASE WHEN ${number_of_turns} > 1
-          THEN true
-          ELSE false
-          END ;;
   }
 
 }
