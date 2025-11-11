@@ -26,10 +26,11 @@ explore: dfcx_session_metadata {
   {% else %}
     1 = 1
     AND {% if dfcx_session_metadata._in_query %} {{dfcx_session_metadata.session_start_raw._sql}} >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 7 DAY) {% else %} 1=1 {% endif %}
-    AND {% if dfcx_transcript._in_query %} {{dfcx_transcript.session_start_raw._sql}} >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 7 DAY) {% else %} 1=1 {% endif %}
+
     AND {% if dfcx_interaction._in_query %} {{{dfcx_interaction.session_start_raw._sql}} >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 7 DAY) {% else %} 1=1 {% endif %}
-  {% endif %}
-  ;;
+
+    AND {% if dfcx_transcript._in_query %} {{dfcx_transcript.session_start_raw._sql}} >= TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 7 DAY) {% else %} 1=1 {% endif %}
+  {% endif %};;
 
   fields: [ALL_FIELDS*
     ,-dfcx_interaction.session_start_time,-dfcx_interaction.session_start_date,-dfcx_interaction.session_start_week,-dfcx_interaction.session_start_month,-dfcx_interaction.session_start_quarter,-dfcx_interaction.session_start_year
