@@ -25,8 +25,6 @@ view: dfcx_session_metadata {
     sql: ${TABLE}.agent_name ;;
   }
 
-
-
   dimension: final_action {
     type: string
     description: "The final action of the session"
@@ -38,8 +36,6 @@ view: dfcx_session_metadata {
     description: "Whether the final action ended"
     sql: ${TABLE}.final_action_ended ;;
   }
-
-
 
   dimension: final_action_started {
     type: yesno
@@ -135,6 +131,10 @@ view: dfcx_session_metadata {
     link: {
       label: "DFCX"
       url: "https://dialogflow.cloud.google.com/cx/projects/{{project_id}}/locations/{{location}}/agents/{{agent_id}}/conversations/{{session_id}}?authuser={{auth_user._parameter_value}}"
+    }
+    link: {
+      label: "Conversational Agents"
+      url: "https://conversational-agents.cloud.google.com/projects/{{project_id}}/locations/{{location}}/agents/{{agent_id}}/(conversations//right-panel:projects/{{project_id}}/locations/{{location}}/agents/{{agent_id}}/conversations/{{session_id}})?conversationId={{session_id}}"
     }
     link: {
       label: "Transcript Explorer"
