@@ -8,10 +8,6 @@ view: dfcx_interaction {
     sql: CONCAT(${session_id}, ${interaction_position}) ;;
   }
 
-
-
-
-
   dimension_group: latest_insert {
     type: time
     description: "The timestamp at which the record was last inserted"
@@ -232,5 +228,3 @@ view: dfcx_interaction__flows {
     sql: action_ended_time ;;
   }
 }
-
-

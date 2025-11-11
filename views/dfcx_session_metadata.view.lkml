@@ -53,11 +53,6 @@ view: dfcx_session_metadata {
     sql: ${TABLE}.final_interaction_head_intent ;;
   }
 
-  dimension: final_interaction_head_intent_pod {
-    type: string
-    sql: ${TABLE}.final_interaction_head_intent_pod ;;
-  }
-
   dimension: final_language_code {
     type: string
     description: "The language code of the final interaction"
@@ -69,8 +64,6 @@ view: dfcx_session_metadata {
     description: "The session parameters of the final interaction"
     sql: ${TABLE}.final_session_parameters ;;
   }
-
-
 
   dimension: flag_failed_webhook {
     type: yesno

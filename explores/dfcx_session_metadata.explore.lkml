@@ -40,13 +40,13 @@ explore: dfcx_session_metadata {
     view_label: "02 - DFCX Interaction"
     type: left_outer
     sql_on: ${dfcx_transcript.session_id} = ${dfcx_interaction.session_id}
-      AND ${dfcx_transcript.position} BETWEEN ${dfcx_interaction.start_interaction_position} AND ${dfcx_interaction.end_interaction_position}
+      AND ${dfcx_transcript.request_raw} BETWEEN ${dfcx_interaction.start_interaction_raw} AND ${dfcx_interaction.end_interaction_raw}
       AND ${dfcx_transcript.session_start_raw} = ${dfcx_interaction.session_start_raw};;
     relationship: one_to_many
   }
 
-  join: dfcx_interaction__actions {
-    view_label: "03 - DFCX Interaction - Actions"
+  join: dfcx_interaction__flows {
+    view_label: "03 - DFCX Interaction - Flows"
   }
 
   join: dfcx_transcript {

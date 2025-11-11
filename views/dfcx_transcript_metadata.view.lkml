@@ -5,7 +5,7 @@ view: dfcx_transcript_metadata {
     hidden: yes
     primary_key: yes
     type: string
-    sql: CONCAT(${session_id}, ${position}) ;;
+    sql: CONCAT(${session_id}, ${response_id}) ;;
   }
 
   dimension: response_id {
@@ -33,7 +33,7 @@ view: dfcx_transcript_metadata {
   }
 
 
-  
+
 
   dimension_group: request {
     type: time
@@ -106,12 +106,12 @@ view: dfcx_transcript_metadata {
 
   dimension: contain_data_store_faq_content {
     group_label: "AI Indicators"
-    label: "Contain Datastore FAQ Content"
+    label: "Contain Data Store FAQ Content"
     type: yesno
     sql: ${TABLE}.contain_data_store_faq_content ;;
   }
 
-  dimension: contain_playbook {
+  dimension: contain_playbook_content {
     group_label: "AI Indicators"
     label: "Contain Playbook"
     type: yesno
@@ -122,7 +122,7 @@ view: dfcx_transcript_metadata {
     group_label: "AI Indicators"
     label: "Contain Any AI Generated Content"
     type: yesno
-    sql: ${contain_ai_generated_content} OR ${contain_datastore_content} OR ${contain_datastore_faq_content} OR ${contain_generative_fallback} OR ${contain_generators_content} OR ${contain_playbook_content} ;;
+    sql: ${contain_ai_generated_content} OR ${contain_data_store_content} OR ${contain_data_store_faq_content} OR ${contain_generative_fallback} OR ${contain_generators_content} OR ${contain_playbook_content} ;;
   }
 
   measure: total_turns_contain_ai_generated_content {
@@ -133,20 +133,20 @@ view: dfcx_transcript_metadata {
     drill_fields: [dfcx_transcript.standard_transcript_drill*,total_turns_contain_ai_generated_content]
   }
 
-  measure: total_turns_contain_datastore_content {
+  measure: total_turns_contain_data_store_content {
     type: count
-    filters: [contain_datastore_content: "Yes"]
+    filters: [contain_data_store_content: "Yes"]
     group_label: "AI Indicators"
-    label: "Total Turns Contain Datastore Content"
-    drill_fields: [dfcx_transcript.standard_transcript_drill*,total_turns_contain_datastore_content]
+    label: "Total Turns Contain Data Store Content"
+    drill_fields: [dfcx_transcript.standard_transcript_drill*,total_turns_contain_data_store_content]
   }
 
-  measure: total_turns_contain_datastore_faq_content {
+  measure: total_turns_contain_data_store_faq_content {
     type: count
-    filters: [contain_datastore_faq_content: "Yes"]
+    filters: [contain_data_store_faq_content: "Yes"]
     group_label: "AI Indicators"
-    label: "Total Turns Contain Datastore FAQ Content"
-    drill_fields: [dfcx_transcript.standard_transcript_drill*,total_turns_contain_datastore_faq_content]
+    label: "Total Turns Contain Data Store FAQ Content"
+    drill_fields: [dfcx_transcript.standard_transcript_drill*,total_turns_contain_data_store_faq_content]
   }
 
   measure: total_turns_contain_generative_fallback {
