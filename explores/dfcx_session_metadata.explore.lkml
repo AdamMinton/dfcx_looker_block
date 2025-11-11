@@ -43,12 +43,16 @@ explore: dfcx_session_metadata {
     relationship: one_to_many
   }
 
+  join: dfcx_interaction_last_turn {
+    view_label: "03 - DFCX Interaction - Last Turn"
+  }
+
   join: dfcx_interaction__flows {
-    view_label: "03 - DFCX Interaction - Flows"
+    view_label: "04 - DFCX Interaction - Flows"
   }
 
   join: dfcx_transcript {
-    view_label: "04 - DFCX Transcript"
+    view_label: "05 - DFCX Transcript"
     type: left_outer
     sql_on: ${dfcx_interaction.session_start_raw} = ${dfcx_transcript.session_start_raw}
       AND ${dfcx_transcript.request_raw} BETWEEN ${dfcx_interaction.start_interaction_raw} AND ${dfcx_interaction.end_interaction_raw};;
@@ -56,24 +60,44 @@ explore: dfcx_session_metadata {
   }
 
   join: dfcx_transcript_metadata {
-    view_label: "04 - DFCX Transcript"
+    view_label: "05 - DFCX Transcript"
     type: left_outer
     sql_on: ${dfcx_transcript.session_start_raw} = ${dfcx_transcript_metadata.session_start_raw}
       AND ${dfcx_transcript.session_id} = ${dfcx_transcript_metadata.session_id}
       AND ${dfcx_transcript.response_id} = ${dfcx_transcript_metadata.response_id};;
-    relationship: one_to_many
+    relationship: one_to_one
   }
 
   join: dfcx_transcript__alternative_matched_intents {
-    view_label: "05 - DFCX Transcript - Alternative Matched Intents"
+    view_label: "06 - DFCX Transcript - Alternative Matched Intents"
+  }
+
+  join: dfcx_transcript__blocks {
+    view_label: "07 - DFCX Blocks"
+  }
+
+  join: dfcx_transcript__blocks__actions {
+    view_label: "08 - DFCX Blocks Actions"
+  }
+
+  join: dfcx_transcript__tools {
+    view_label: "09 - DFCX Tools"
+  }
+
+  join: dfcx_transcript__actions {
+    view_label: "10 - DFCX Actions"
+  }
+
+  join: dfcx_transcript__playbooks {
+    view_label: "11 - DFCX Playbooks"
   }
 
   join: dfcx_transcript__execution_sequence {
-    view_label: "06 - DFCX Execution Sequence"
+    view_label: "12 - DFCX Execution Sequence"
   }
 
   join: dfcx_transcript__webhooks {
-    view_label: "07 - DFCX Webhooks"
+    view_label: "13 - DFCX Webhooks"
   }
 
 }
