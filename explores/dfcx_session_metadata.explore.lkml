@@ -45,6 +45,7 @@ explore: dfcx_session_metadata {
 
   join: dfcx_interaction_last_turn {
     view_label: "03 - DFCX Interaction - Last Turn"
+    from: dfcx_transcript
   }
 
   join: dfcx_interaction__flows {
