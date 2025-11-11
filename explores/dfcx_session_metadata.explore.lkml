@@ -39,9 +39,7 @@ explore: dfcx_session_metadata {
   join: dfcx_interaction {
     view_label: "02 - DFCX Interaction"
     type: left_outer
-    sql_on: ${dfcx_transcript.session_id} = ${dfcx_interaction.session_id}
-      AND ${dfcx_transcript.request_raw} BETWEEN ${dfcx_interaction.start_interaction_raw} AND ${dfcx_interaction.end_interaction_raw}
-      AND ${dfcx_transcript.session_start_raw} = ${dfcx_interaction.session_start_raw};;
+    sql_on: ${dfcx_session_metadata.session_start_raw} = ${dfcx_interaction.session_start_raw} AND ${dfcx_session_metadata.session_id} = ${dfcx_interaction.session_id};;
     relationship: one_to_many
   }
 
@@ -52,8 +50,8 @@ explore: dfcx_session_metadata {
   join: dfcx_transcript {
     view_label: "04 - DFCX Transcript"
     type: left_outer
-    sql_on: ${dfcx_session_metadata.session_start_raw} = ${dfcx_transcript.session_start_raw}
-      AND ${dfcx_session_metadata.session_id} = ${dfcx_transcript.session_id};;
+    sql_on: ${dfcx_interaction.session_start_raw} = ${dfcx_transcript.session_start_raw}
+      AND ${dfcx_transcript.request_raw} BETWEEN ${dfcx_interaction.start_interaction_raw} AND ${dfcx_interaction.end_interaction_raw};;
     relationship: one_to_many
   }
 

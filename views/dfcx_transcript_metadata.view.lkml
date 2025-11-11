@@ -9,6 +9,7 @@ view: dfcx_transcript_metadata {
   }
 
   dimension: response_id {
+    hidden: yes
     type: string
     description: "The unique ID associated with the response from the agent"
     sql: ${TABLE}.response_id ;;
@@ -32,10 +33,8 @@ view: dfcx_transcript_metadata {
     sql: ${TABLE}.contain_generative_fallback ;;
   }
 
-
-
-
   dimension_group: request {
+    hidden: yes
     type: time
     description: "The time of the conversational turn"
     timeframes: [
@@ -51,6 +50,7 @@ view: dfcx_transcript_metadata {
   }
 
   dimension_group: insert {
+    hidden: yes
     type: time
     description: "The timestamp when the record was inserted"
     timeframes: [
@@ -66,12 +66,14 @@ view: dfcx_transcript_metadata {
   }
 
   dimension: session_id {
+    hidden: yes
     type: string
     description: "The fully qualified unique ID for the session"
     sql: ${TABLE}.session_id ;;
   }
 
   dimension_group: session_start {
+    hidden: yes
     type: time
     description: "The timestamp at which the session started"
     timeframes: [
@@ -196,10 +198,6 @@ view: dfcx_transcript_metadata {
     drill_fields: [dfcx_transcript.standard_transcript_drill*,ai_generated_content_percentage]
   }
 
-  measure: count {
-    type: count
-    drill_fields: []
-  }
 }
 
 view: dfcx_transcript_metadata__alternative_matched_intents {

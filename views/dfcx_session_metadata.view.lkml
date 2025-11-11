@@ -60,14 +60,10 @@ view: dfcx_session_metadata {
   }
 
   dimension: final_session_parameters {
+    hidden: yes
     type: string
     description: "The session parameters of the final interaction"
     sql: ${TABLE}.final_session_parameters ;;
-  }
-
-  dimension: flag_failed_webhook {
-    type: yesno
-    sql: ${TABLE}.flag_failed_webhook ;;
   }
 
   dimension: is_escalated {
